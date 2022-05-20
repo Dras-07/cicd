@@ -15,7 +15,7 @@ public class HelloResourceTest {
           .when().get("/hello")
           .then()
              .statusCode(200)
-             .body(is("v2 - hello"));
+             .body(is("v1 - hello"));
     }
 
 }
