@@ -1,28 +1,28 @@
-// podTemplate(label: "mymaven", 
-// yaml: """
-// apiVersion: v1
-// kind: Pod
-// spec:
-//   containers:
-//   - name: maven
-//     image: rafabene/jenkins-slave
-//     imagePullPolicy: IfNotPresent
-//     tty: true
-//     command: ["cat"]
-//     volumeMounts:
-//     - name: dockersock
-//       mountPath: /var/run/docker.sock
-//     - name: m2
-//       mountPath: /home/jenkins/.m2
-//   volumes:
-//   - name: dockersock
-//     hostPath:
-//       path: /var/run/docker.sock
-//   - name: m2
-//     hostPath:
-//       path: /tmp/m2
-// """
-//   )
+podTemplate(label: "mymaven", 
+yaml: """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: maven
+    image: rafabene/jenkins-slave
+    imagePullPolicy: IfNotPresent
+    tty: true
+    command: ["cat"]
+    volumeMounts:
+    - name: dockersock
+      mountPath: /var/run/docker.sock
+    - name: m2
+      mountPath: /home/jenkins/.m2
+  volumes:
+  - name: dockersock
+    hostPath:
+      path: /var/run/docker.sock
+  - name: m2
+    hostPath:
+      path: /tmp/m2
+"""
+  )
 {
     properties([pipelineTriggers([pollSCM('*/1 * * * * ')])])
     node ("mymaven"){
