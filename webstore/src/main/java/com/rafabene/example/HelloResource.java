@@ -11,7 +11,7 @@ public class HelloResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "v6 - hello";
+        return "v6 - jello";
     }
 }
 // End of snippet.
