@@ -58,14 +58,14 @@ spec:
                 input 'Approve deployment?'
             }
 
-//             stage ('Deploy'){
-//                 echo 'Building native binary'
-//                 dir('webstore') {
-//                     sh 'kubectl apply -f Deployment.yaml'
-//                     sh 'kubectl apply -f Service.yaml'
-//                     sh """kubectl patch deployment cloudnative -p '{"spec":{"template":{"metadata":{"labels":{ "build": "${env.BUILD_NUMBER}"}}}}}' """
-   //             }       
-            //}
+            stage ('Deploy'){
+                echo 'Building native binary'
+                dir('webstore') {
+                    sh 'kubectl apply -f Deployment.yaml'
+                    sh 'kubectl apply -f Service.yaml'
+                    sh """kubectl patch deployment cloudnative -p '{"spec":{"template":{"metadata":{"labels":{ "build": "${env.BUILD_NUMBER}"}}}}}' """
+               }       
+            }
         }    
     }
 }
